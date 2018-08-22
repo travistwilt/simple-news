@@ -12,4 +12,7 @@
 //
 //= require rails-ujs
 //= require turbolinks
+
+//= require news
+
 //= require_tree .

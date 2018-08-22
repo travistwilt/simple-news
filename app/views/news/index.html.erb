@@ -1,1 +1,42 @@
-<h1>Hello World</h1>
+<div class="stories">
+
+	<h1 class="title">Simple News</h1>
+	<h2 class="subtitle">Hacker news in a minimalist modern UI</h2>
+	
+	<div class="filters">
+		<%= link_to "Show Odd Numbered Stories", :show => "odd" %>
+		<%= link_to "Show Even Numbered Stories", :show => "even" %>
+	</div>
+	
+	<div class="container">
+	
+	<% i=1 %>
+	<% @stories.each do |story| %>
+		
+		<% if i % 2 == 0 or i == 1 %>
+			<div class="row">
+		<% end %>
+			
+			
+			<div class="col-md">
+				<a href="<%=story['url']=%>">
+					<div class="img-frame" ></div>
+					<div class="text-frame" >
+						<h1 class="headline"><%=story['title']=%></h1>
+					</div>
+				</a>
+			</div>
+			
+		
+		<% if i % 2 != 0 or i == 1 %>
+			</div>
+		<% end %>
+		
+		<% i = i + 1 %>
+		
+	<% end %>
+	
+	</div>
+	
+	
+</div>

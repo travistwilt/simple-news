@@ -14,4 +14,14 @@
  *= require_self
  */
 
- @import "bootstrap";
+@import "bootstrap";
+@import "news";
+ 
+body {
+	background-color: #f9f8f6;
+}
+
+.stories {
+	text-align: center;
+}
+

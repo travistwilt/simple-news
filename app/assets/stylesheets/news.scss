@@ -1,3 +1,88 @@
 // Place all the styles related to the News controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+// LAYOUT
+
+.row {
+	margin-bottom: 30px;
+	min-height: 120px;
+}
+
+.row div{
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.white-space {
+	height:40px;
+}
+
+.img-frame {
+	background-color: #aaa;
+	width: 100%;
+	height: auto;
+	min-height: 200px;
+	display: block;
+}
+
+.text-frame {
+	background-color: #fff;
+	width: 100%;
+	height: auto;
+	display: block;
+	padding: 20px;
+}
+
+.filters {
+	margin-bottom: 20px;
+}
+
+//TYPOGRAPHY
+
+a {
+	color: black;
+}
+
+a:hover {
+	color: black;
+}
+
+.filters a {
+	padding: 20px;
+}
+
+h1.title {
+	font-size: 3.5rem !important;
+	margin-top: 140px;
+}
+
+h1.headline {
+	font-size: 1.25rem !important;
+	padding: 10px;
+}
+
+h2.subtitle {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	color: #aaa;
+	font-weight: light;
+	margin-bottom: 100px;
+}
+
+// MEDIA QUERIES
+
+@media only screen and (max-width: 800px)  {
+	.col-md {
+		margin-bottom: 20px;
+	}
+	.row {
+		margin-bottom: 0px;
+	}
+	.filters {
+		display: none;
+	}
+}
