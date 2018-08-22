@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'rest-client', '~> 1.8'
+gem 'opengraph_parser', '~> 0.2.3'
 
 
 # Use CoffeeScript for .coffee assets and views
