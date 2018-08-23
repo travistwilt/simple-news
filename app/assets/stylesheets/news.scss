@@ -12,8 +12,7 @@
 }
 
 .row div{
-  padding-left: 8px;
-  padding-right: 8px;
+	padding: 8px 8px 0px 8px;
 }
 
 .white-space {
@@ -21,17 +20,15 @@
 }
 
 .img-frame {
-	background-color: #eee;
-	height: 200px;
-	display: block;
-	width:100%;
-	padding-top: 56.25%;
+	height: 400px;
+	width: 100%;
+	background-color: #fff;
 }
 
 .article-img {
-	max-width: 100%;
-	max-height: 100%;
-	height: auto;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
 }
 
 .text-frame {
@@ -39,7 +36,6 @@
 	width: 100%;
 	height: auto;
 	display: block;
-	padding: 20px;
 }
 
 .filters {
@@ -68,6 +64,7 @@ h1.title {
 h1.headline {
 	font-size: 1.25rem !important;
 	padding: 10px;
+	padding-bottom: 20px;
 }
 
 h2.subtitle {
