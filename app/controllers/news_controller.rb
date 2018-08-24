@@ -7,7 +7,6 @@ class NewsController < ApplicationController
 	
 	#get the latest stories
 	@storyIds = RestClient.get 'https://hacker-news.firebaseio.com/v0/newstories.json'
-	puts @storyIds
 	@storyIds = JSON.parse(@storyIds)
 	
 	#remove odd or even articles depending on if the user has selected a filter
@@ -24,20 +23,20 @@ class NewsController < ApplicationController
 	#query the api to retrieve the stories that correspond to the ids
 	#the api can unfortunately only return one story at a time
 	@storyIds.each { |id|
+		
 		@story = RestClient.get 'https://hacker-news.firebaseio.com/v0/item/'+id.to_s+'.json'
-		@story = JSON.parse(@story)
+		@story = JSON.parse(@story, {:quirks_mode => true})
 		
 		#generate images from article link
-		og = OpenGraph.new(@story['url'])
-		@story.merge!("img": og.images[0])
-		@stories.push(@story)
+		if @story.present?
+			og = OpenGraph.new(@story['url'])
+			@story.merge!("img": og.images[0])
+			@stories.push(@story)
+		end
 
 	}
 	
-	puts @stories
-	puts "....."
 	@stories.sort_by { |hash| hash['id'].to_i }
-	puts @stories
-	
+
   end
 end
