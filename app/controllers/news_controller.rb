@@ -7,13 +7,14 @@ class NewsController < ApplicationController
 	
 	#get the latest stories
 	@storyIds = RestClient.get 'https://hacker-news.firebaseio.com/v0/newstories.json'
+	puts @storyIds
 	@storyIds = JSON.parse(@storyIds)
 	
 	#remove odd or even articles depending on if the user has selected a filter
 	params = request.query_parameters
 	if params['show'] == 'odd'
 		@storyIds.reject!.with_index{|_, i| i.even?}
-	else 
+	elsif params['show'] == 'even'
 		@storyIds.reject!.with_index{|_, i| i.odd?}
 	end
 	
@@ -29,11 +30,14 @@ class NewsController < ApplicationController
 		#generate images from article link
 		og = OpenGraph.new(@story['url'])
 		@story.merge!("img": og.images[0])
-		puts og.images
-
 		@stories.push(@story)
-		puts @story
+
 	}
+	
+	puts @stories
+	puts "....."
+	@stories.sort_by { |hash| hash['id'].to_i }
+	puts @stories
 	
   end
 end
